@@ -1,14 +1,7 @@
 import React from 'react';
-import Footer from '../Footer';
-import Header from '../Header';
 
 function Main() {
-  return (
-    <>
-      <Header />
-      <Footer />
-    </>
-  );
+  return <div>Main</div>;
 }
 
 export default Main;
