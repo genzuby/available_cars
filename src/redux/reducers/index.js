@@ -1,8 +1,9 @@
 import { combineReducers } from 'redux';
-import filterReducer from './filterReducer';
+import { colorsReducer, manufacturersReducer } from './filterReducer';
 
 const rootReducers = combineReducers({
-  filter: filterReducer,
+  colorFilter: colorsReducer,
+  manufacturersFilter: manufacturersReducer,
 });
 
 export default rootReducers;

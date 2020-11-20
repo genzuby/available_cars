@@ -12,9 +12,10 @@ function App() {
       <GlobalStyle />
       <div className="App">
         <Header />
-        <Route path="/" component={Main} exact />
+        <Main />
+        {/* <Route path="/" component={Main} exact />
         <Route path="/:id" component={Detail} />
-        <Route path="/notfound" component={NotFound} />
+        <Route path="/notfound" component={NotFound} /> */}
         <Footer />
       </div>
     </Router>

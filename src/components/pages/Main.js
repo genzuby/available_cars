@@ -1,7 +1,12 @@
 import React from 'react';
+import Filters from '../Content/Filters';
 
 function Main() {
-  return <div>Main</div>;
+  return (
+    <div>
+      <Filters />
+    </div>
+  );
 }
 
 export default Main;
