@@ -1,11 +1,15 @@
 import { createGlobalStyle } from 'styled-components';
+import { COLOR } from './constant';
 
 const GlobalStyle = createGlobalStyle`
-@import url('https://fonts.googleapis.com/css2?family=Open+Sans&display=swap');
-  body {
+  body , html{
     margin: 0;
     padding: 0;
-    font-family: 'Open Sans', sans-serif;
+    font-family: 'Roboto', sans-serif;
+    color : ${COLOR.DARK_GRAY}
+  }
+  a{
+    text-decoration : none !important;
   }
 `;
 

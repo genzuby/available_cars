@@ -4,4 +4,6 @@ export const COLOR = {
   DARK_ORANGE: '#D37324',
   LIGHT_GRAY: '#EDEDED',
   DARK_GRAY: '#4A4A4A',
+  BTN_COLOR: '#ffffff',
+  MAIN_BGCOLOR: '#ffffff',
 };

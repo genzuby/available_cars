@@ -1,21 +1,34 @@
-import React, { useEffect } from 'react';
+import React, { useContext } from 'react';
 import DropDown from './DropDown';
 import { useDispatch } from 'react-redux';
-import { getColorsList, getManufaturersList } from '../../redux/actions';
+import { Button, InputGroup } from 'react-bootstrap';
+import { getAvailableCarList } from '../../redux/actions';
+import { FilterContext } from '../../contexts/FilterContext';
+import {
+  inputGroupStyle,
+  btnNoremalStyle,
+  BTN_WRAPPER,
+} from '../../style/componentStyle';
 
 function Filters() {
   const dispatch = useDispatch();
+  const { filter, setFilter } = useContext(FilterContext);
 
-  useEffect(() => {
-    dispatch(getColorsList());
-    dispatch(getManufaturersList());
-  }, []);
+  const onClickFilter = () => {
+    setFilter({ ...filter, page: 1 });
+    dispatch(getAvailableCarList({ ...filter }));
+  };
 
   return (
-    <div>
+    <InputGroup style={inputGroupStyle}>
       <DropDown type="color" />
-      <DropDown type="manufaturers" />
-    </div>
+      <DropDown type="manufacturers" />
+      <BTN_WRAPPER justifyContent="flex-end">
+        <Button style={btnNoremalStyle} onClick={onClickFilter}>
+          Filter
+        </Button>
+      </BTN_WRAPPER>
+    </InputGroup>
   );
 }
 

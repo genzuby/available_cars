@@ -34,10 +34,10 @@ export const getColorsList = () => async dispatch => {
 };
 
 export const getAvailableCarList = ({ ...params }) => async dispatch => {
-  let paramValue;
+  let paramValue = '';
 
   for (let key in params) {
-    paramValue += `${key}=${params[key]}?`;
+    paramValue += `${key}=${params[key]}&`;
   }
 
   try {
@@ -56,11 +56,11 @@ export const getAvailableCarList = ({ ...params }) => async dispatch => {
 
 export const getDetailInfo = stockNumber => async dispatch => {
   try {
-    const response = await axios.get(`${BASE_URL}/cars?/${stockNumber}`);
+    const response = await axios.get(`${BASE_URL}/cars/${stockNumber}`);
 
     dispatch({
       type: GET_CAR_DETAILINFO,
-      payload: response.data,
+      payload: response.data.car,
     });
   } catch (e) {
     console.log(e);

@@ -1,18 +1,72 @@
-import React, { useState } from 'react';
-import { Dropdown } from 'react-bootstrap';
+import React, { useState, useContext } from 'react';
 import { useSelector } from 'react-redux';
+import { ListGroup } from 'react-bootstrap';
+import { FilterContext } from '../../contexts/FilterContext';
+import {
+  dropdownlistStyle,
+  DROPDOWN_WRAPPER,
+  DROPDOWN_BTN,
+  OPTION_WRAPPER,
+  LABEL,
+} from '../../style/componentStyle';
 
 function DropDown({ type }) {
-  const [selectedValue, setSelectedValue] = useState('');
-  const filter = useSelector(state => state.filter);
+  const [displayDropdown, setDisplayDropdown] = useState(false);
+  const { filter, setFilter } = useContext(FilterContext);
+  const colorFilter = useSelector(state => state.colorFilter);
+  const manufacturersFilter = useSelector(state => state.manufacturersFilter);
+
+  const onClickFilterItem = value => {
+    type === 'color'
+      ? setFilter({ ...filter, color: value })
+      : setFilter({ ...filter, manufacturer: value });
+    setDisplayDropdown(false);
+  };
+
+  const renderDropDown = () => {
+    const manufacturersNames = manufacturersFilter.reduce((acc, val) => {
+      acc.push(val.name);
+      return acc;
+    }, []);
+    const itemArray = type === 'color' ? colorFilter : manufacturersNames;
+
+    return itemArray.map((item, idx) => (
+      <ListGroup.Item action key={idx} onClick={() => onClickFilterItem(item)}>
+        {item}
+      </ListGroup.Item>
+    ));
+  };
+
+  const renderFilter = () => {
+    if (type === 'color') {
+      return filter.color ? <p>{filter.color}</p> : 'All car colors';
+    } else if (type === 'manufacturers') {
+      return filter.manufacturer ? (
+        <p>{filter.manufacturer}</p>
+      ) : (
+        'All manufacturers'
+      );
+    }
+  };
 
   return (
-    <Dropdown>
-      <Dropdown.Toggle id="dropdown-basic">
-        All {type === 'color' ? 'car colors' : 'manufacturers'}
-      </Dropdown.Toggle>
-      <Dropdown.Menu></Dropdown.Menu>
-    </Dropdown>
+    <OPTION_WRAPPER flexDirection="column">
+      <LABEL>{type}</LABEL>
+      <DROPDOWN_WRAPPER>
+        <DROPDOWN_BTN onClick={() => setDisplayDropdown(!displayDropdown)}>
+          {renderFilter()}
+          <span className="--dropdown-arrow" />
+        </DROPDOWN_BTN>
+        <ListGroup
+          style={{
+            ...dropdownlistStyle,
+            display: `${displayDropdown ? 'block' : 'none'}`,
+          }}
+        >
+          {renderDropDown()}
+        </ListGroup>
+      </DROPDOWN_WRAPPER>
+    </OPTION_WRAPPER>
   );
 }
 

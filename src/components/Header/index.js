@@ -1,12 +1,6 @@
 import React from 'react';
 import { Nav } from 'react-bootstrap';
-import styled from 'styled-components';
-import { COLOR } from '../../style/constant';
-
-const navStyle = {
-  height: '80px',
-  borderBottom: `2px solid ${COLOR.LIGHT_GRAY}`,
-};
+import { LOGOIMG, navStyle } from '../../style/componentStyle';
 
 function Header() {
   return (
@@ -23,11 +17,5 @@ function Header() {
     </Nav>
   );
 }
-
-const LOGOIMG = styled.img`
-  width: 73%;
-  height: auto;
-  padding: 8px 24px;
-`;
 
 export default Header;
