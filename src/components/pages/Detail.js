@@ -9,15 +9,15 @@ import {
   HERO,
   DETAIL_INFO_SUB,
   DETAIL_INFO_GROUP,
-  btnNoremalStyle,
   BTN_WRAPPER,
+  BUTTON,
 } from '../../style/componentStyle';
-import { Button } from 'react-bootstrap';
 
 function Detail() {
   const history = useHistory();
   const stockId = useParams().stockNumber;
   const dispatch = useDispatch();
+  const prevPath = history.location.state.prevPath;
 
   useEffect(() => {
     dispatch(getDetailInfo(stockId));
@@ -43,19 +43,22 @@ function Detail() {
     history.goBack();
   };
 
+  const renderAddFavoriteButton = () =>
+    prevPath === '/favorites' ? (
+      <Favorites stockNumber={stockId} />
+    ) : (
+      <Favorites />
+    );
+
   return (
     <div style={detailStyle}>
       <HERO url={pictureUrl} />
       <DETAIL_INFO_GROUP>
         <DetailInfo title={title} desc={desc} />
-        <DETAIL_INFO_SUB>
-          <Favorites />
-        </DETAIL_INFO_SUB>
+        <DETAIL_INFO_SUB>{renderAddFavoriteButton()}</DETAIL_INFO_SUB>
       </DETAIL_INFO_GROUP>
       <BTN_WRAPPER justifyContent="center">
-        <Button style={btnNoremalStyle} onClick={onClickBackToList}>
-          Back to the list
-        </Button>
+        <BUTTON onClick={onClickBackToList}>Back to the list</BUTTON>
       </BTN_WRAPPER>
     </div>
   );

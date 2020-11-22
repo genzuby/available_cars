@@ -1,12 +1,12 @@
 import React, { useContext } from 'react';
 import DropDown from './DropDown';
 import { useDispatch } from 'react-redux';
-import { Button, InputGroup } from 'react-bootstrap';
+import { InputGroup } from 'react-bootstrap';
 import { getAvailableCarList } from '../../redux/actions';
 import { FilterContext } from '../../contexts/FilterContext';
 import {
   inputGroupStyle,
-  btnNoremalStyle,
+  BUTTON,
   BTN_WRAPPER,
 } from '../../style/componentStyle';
 
@@ -24,9 +24,7 @@ function Filters() {
       <DropDown type="color" />
       <DropDown type="manufacturers" />
       <BTN_WRAPPER justifyContent="flex-end">
-        <Button style={btnNoremalStyle} onClick={onClickFilter}>
-          Filter
-        </Button>
+        <BUTTON onClick={onClickFilter}>Filter</BUTTON>
       </BTN_WRAPPER>
     </InputGroup>
   );

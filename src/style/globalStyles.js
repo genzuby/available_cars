@@ -8,8 +8,10 @@ const GlobalStyle = createGlobalStyle`
     font-family: 'Roboto', sans-serif;
     color : ${COLOR.DARK_GRAY}
   }
+  
   a{
     text-decoration : none !important;
+    color : ${COLOR.DARK_GRAY}
   }
 `;
 

@@ -14,10 +14,12 @@ export const mainStyle = {
   margin: '80px 0',
   padding: '24px 48px 0 24px',
   display: 'grid',
+  minHeight: '76vh',
 };
 
 export const detailStyle = {
-  margin: '80px 0',
+  margin: '80px 0 24px 0',
+  width: '100%',
   display: 'grid',
 };
 
@@ -32,6 +34,7 @@ export const navStyle = {
   height: '80px',
   borderBottom: `2px solid ${LIGHT_GRAY}`,
   backgroundColor: MAIN_BGCOLOR,
+  fontSize: '20px',
 };
 
 export const LOGOIMG = styled.img`
@@ -40,49 +43,45 @@ export const LOGOIMG = styled.img`
   padding: 8px 24px;
 `;
 
-const btnStyle = {
-  width: '168px',
-  height: '38px',
-  fontSize: '16px',
-  color: BTN_COLOR,
-  outline: '0 !important',
-  border: 'none',
-  borderRadius: '2px',
-  marginTop: '24px',
-  letterSpacing: '1px',
-  cursor: 'pointer',
-};
+export const BUTTON = styled.button`
+  width: 168px;
+  height: 38px;
+  font-size: 16px;
+  color: ${BTN_COLOR};
+  outline: 0 !important;
+  border: none;
+  border-radius: 2px;
+  margin-top: 24px;
+  letter-spacing: 1px;
+  cursor: pointer;
+  background-color: ${props => props.bgColor || MAIN_ORANGE};
 
-export const btnNoremalStyle = {
-  ...btnStyle,
-  backgroundColor: MAIN_ORANGE,
-};
-
-export const btnPressedStyle = {
-  ...btnStyle,
-  backgroundColor: DARK_ORANGE,
-};
+  &:hover {
+    background-color: ${props => props.hoverColor || DARK_ORANGE};
+  }
+`;
 
 export const TEXT_BTN = styled.div`
-  color: ${MAIN_ORANGE};
-  font-size: 16px;
+  color: ${props => props.color || MAIN_ORANGE};
+  font-size: ${props => props.fontSize || `16px`};
   cursor: pointer;
   position: relative;
-  width: 100px;
+  display: inline;
+  padding: 4px 0;
 
   &:after {
     content: '';
     display: block;
     height: 2px;
     bottom: 0;
-    left: 40%;
+    left: 50%;
     position: absolute;
-    background: ${MAIN_ORANGE};
+    background: ${props => props.color || MAIN_ORANGE};
     transition: width 0.3s ease 0s, left 0.3s ease 0s;
     width: 0;
   }
   &:hover:after {
-    width: 90%;
+    width: 100%;
     left: 0;
   }
 `;
@@ -104,6 +103,7 @@ export const LIST_CONTENT = styled.div`
 export const cardStyle = {
   marginBottom: '8px',
   width: '100%',
+  position: 'relative',
 };
 
 export const cardTitleStyle = {
@@ -196,6 +196,7 @@ export const LABEL = styled.p`
 export const PAGINATAION_WRAPPER = styled.div`
   display: flex;
   justify-content: center;
+  align-items: center;
   margin-top: 24px;
   padding-top: 24px;
   text-align: center;
@@ -203,7 +204,7 @@ export const PAGINATAION_WRAPPER = styled.div`
 
 export const PAGINATION_TEXT = styled.p`
   font-size: 16px;
-  padding: 0 24px;
+  padding: 12px 24px 0 24px;
 `;
 
 export const PAGINATION_BTN = styled.button`
@@ -227,17 +228,18 @@ export const HERO = styled.div`
   background-size: contain;
   background-position: center;
   width: 100vw;
-  height: 50vh;
+  height: 44vh;
 `;
 
 export const DETAIL_INFO_GROUP = styled.div`
   display: flex;
-  margin: 24px 10rem;
+  width: 1000px;
+  justify-self: center;
 `;
 
 export const DETAIL_INFO = styled.div`
   flex-grow: 1;
-  margin: 24px 24px 0 24px;
+  margin-top: 48px;
   h3,
   p {
     padding-top: 12px;
@@ -253,7 +255,22 @@ export const DETAIL_INFO = styled.div`
 `;
 
 export const DETAIL_INFO_SUB = styled.div`
-  max-width: 500px;
-  margin: 0 24px;
+  width: 300px;
   padding: 24px;
+`;
+
+export const DELETE_ICON = styled.span`
+  position: absolute;
+  background: url('/assets/delete.svg') no-repeat;
+  background-size: contain;
+  right: 0;
+  top: 0;
+  margin: 24px;
+  width: 24px;
+  height: 24px;
+  cursor: pointer;
+
+  &:hover {
+    background: url('/assets/delete-hover.svg') no-repeat;
+  }
 `;

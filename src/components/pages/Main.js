@@ -2,20 +2,20 @@ import React from 'react';
 import { Container, Row, Col } from 'react-bootstrap';
 import useInitalLoading from '../../hooks/useInitalLoading';
 import Filters from '../Content/Filters';
-import CarList from '../Content/CarList';
+import AvailableCars from '../Content/AvailableCars';
 import { mainStyle } from '../../style/componentStyle';
 
 function Main() {
   useInitalLoading();
 
   return (
-    <Container className="container-fluid d-flex flex-fill" style={mainStyle}>
+    <Container fluid style={mainStyle}>
       <Row>
         <Col style={{ maxWidth: '400px' }}>
           <Filters />
         </Col>
-        <Col className="column-fluid">
-          <CarList />
+        <Col style={{ margin: '0 48px 0 0' }}>
+          <AvailableCars />
         </Col>
       </Row>
     </Container>

@@ -1,23 +1,15 @@
-import { useState } from 'react';
-import { useSelector } from 'react-redux';
+import { useState, useEffect } from 'react';
 
 export default function useLocalStorage(key, initValue) {
-  // const key = `AUTO1_MY_FAVORITE_CAR`;
-  const carDetailInfo = useSelector(state => state.carDetailInfo);
   const [localValue, setLocalVaue] = useState(() => {
     if (!initValue) return;
-    try {
-      const localData = localStorage.getItem(key);
-      return localData ? JSON.parse(localValue) : initValue;
-    } catch (err) {
-      return initValue;
-    }
+    const localData = localStorage.getItem(key);
+    return localData ? JSON.parse(localData) : initValue;
   });
-  console.log(carDetailInfo);
 
-  const addLocalStorage = () => {
-    if (localValue) localStorage.setItem(key, JSON.stringify(localValue));
-  };
+  useEffect(() => {
+    localStorage.setItem(key, JSON.stringify(localValue));
+  }, [key, localValue]);
 
-  return { addLocalStorage };
+  return [localValue, setLocalVaue];
 }
