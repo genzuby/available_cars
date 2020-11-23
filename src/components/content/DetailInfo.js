@@ -3,7 +3,7 @@ import { DETAIL_INFO } from '../../style/componentStyle';
 
 function DetailInfo({ title, desc }) {
   return (
-    <DETAIL_INFO>
+    <DETAIL_INFO data-testid="detailInfo">
       <h1>{title}</h1>
       <h3>{desc}</h3>
       <p>

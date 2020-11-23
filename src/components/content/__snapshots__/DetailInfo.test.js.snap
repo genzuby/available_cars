@@ -1,0 +1,27 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`render 1`] = `
+<div
+  class="sc-kstrdz eafViQ"
+  data-testid="detailInfo"
+>
+  <h1 />
+  <h3 />
+  <p>
+    This car is currently available and can be delivered as soon as tomorrow morning. Please be aware that delivery times shown in this page are not definitive and may change due to bad weather conditions.
+  </p>
+</div>
+`;
+
+exports[`render snapshot 1`] = `
+<div
+  class="sc-kstrdz eafViQ"
+  data-testid="detailInfo"
+>
+  <h1 />
+  <h3 />
+  <p>
+    This car is currently available and can be delivered as soon as tomorrow morning. Please be aware that delivery times shown in this page are not definitive and may change due to bad weather conditions.
+  </p>
+</div>
+`;

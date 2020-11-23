@@ -8,6 +8,7 @@ import Main from './pages/Main';
 import MyFavorites from './pages/MyFavorites';
 import NotFound from './pages/NotFound';
 import Detail from './pages/Detail';
+import { DetailInfoProvider } from '../contexts/DetailInfoContext';
 
 function App() {
   return (
@@ -16,14 +17,16 @@ function App() {
       <Router>
         <FavoritesProvider>
           <FilterProvider>
-            <Header />
-            <Switch>
-              <Route path="/" component={Main} exact />
-              <Route path="/favorites" component={MyFavorites} />
-              <Route path="/:stockNumber" component={Detail} />
-              {/* <Route path="/notfound" component={NotFound} /> */}
-            </Switch>
-            <Footer />
+            <DetailInfoProvider>
+              <Header />
+              <Switch>
+                <Route path="/" component={Main} exact />
+                <Route path="/favorites" component={MyFavorites} />
+                <Route path="/:stockNumber" component={Detail} />
+                {/* <Route path="/notfound" component={NotFound} /> */}
+              </Switch>
+              <Footer />
+            </DetailInfoProvider>
           </FilterProvider>
         </FavoritesProvider>
       </Router>

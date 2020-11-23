@@ -1,0 +1,207 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`snapshot 1`] = `
+<div
+  class="container-fluid"
+  data-testid="main"
+  style="margin: 80px 0px; padding: 24px 48px 0px 24px; display: grid; min-height: 76vh;"
+>
+  <div
+    class="row"
+  >
+    <div
+      class="col"
+      style="max-width: 400px;"
+    >
+      <div
+        class="input-group"
+        data-testid="filters"
+        style="border: 2px solid #ededed; padding: 24px; margin: 24px; display: flex;"
+      >
+        <div
+          class="sc-pFZIQ duAHLa"
+          data-testid="dropdown"
+        >
+          <p
+            class="sc-jrAGrp eEGqha"
+          >
+            color
+          </p>
+          <div
+            class="sc-iBPRYJ fNSIpf"
+          >
+            <button
+              class="sc-gKsewC bdczbD"
+              data-testid="dropdown-button"
+            >
+              All car colors
+              <span
+                class="--dropdown-arrow"
+              />
+            </button>
+            <div
+              class="list-group"
+              data-testid="dropdown-list"
+              style="width: 100%; position: absolute; z-index: 2; background-color: rgb(255, 255, 255); cursor: pointer; left: 0px; top: 48px; display: none;"
+            >
+              <button
+                class="list-group-item list-group-item-action"
+              >
+                red
+              </button>
+            </div>
+          </div>
+        </div>
+        <div
+          class="sc-pFZIQ duAHLa"
+          data-testid="dropdown"
+        >
+          <p
+            class="sc-jrAGrp eEGqha"
+          >
+            manufacturers
+          </p>
+          <div
+            class="sc-iBPRYJ fNSIpf"
+          >
+            <button
+              class="sc-gKsewC bdczbD"
+              data-testid="dropdown-button"
+            >
+              All manufacturers
+              <span
+                class="--dropdown-arrow"
+              />
+            </button>
+            <div
+              class="list-group"
+              data-testid="dropdown-list"
+              style="width: 100%; position: absolute; z-index: 2; background-color: rgb(255, 255, 255); cursor: pointer; left: 0px; top: 48px; display: none;"
+            >
+              <button
+                class="list-group-item list-group-item-action"
+              >
+                Audi
+              </button>
+            </div>
+          </div>
+        </div>
+        <div
+          class="sc-fubCfw bCEQtI"
+        >
+          <button
+            class="sc-gsTCUz dUSUzg"
+            data-testid="filter-button"
+          >
+            Filter
+          </button>
+        </div>
+      </div>
+    </div>
+    <div
+      class="col"
+      style="margin: 0px 48px 0px 0px;"
+    >
+      <div
+        class="sc-hKgILt kUrLvW"
+        data-testid="availableCarList"
+      >
+        <h3
+          class="--list-title"
+        >
+          Available cars
+        </h3>
+        <p
+          class="--list-desc"
+        >
+          Showing 10 of 
+          100
+           results
+        </p>
+        <div
+          data-testid="carList"
+        >
+          <div
+            class="card"
+            data-testid="itemCard"
+            style="margin-bottom: 8px; width: 100%; position: relative;"
+          >
+            <div
+              class="card-body"
+            >
+              <div
+                class="sc-eCssSg jQmxdX"
+              >
+                <img
+                  alt="Dodge Caliber"
+                  class="sc-jSgupP htlqyq"
+                  src="car.svg"
+                  width="120px"
+                />
+                <div>
+                  <div
+                    class="card-title h5"
+                    style="font-size: 24px; font-weight: bold;"
+                  >
+                    Dodge Caliber
+                  </div>
+                  <p
+                    class="card-text"
+                  >
+                    Stock #10907 - 138210 km - Diesel
+                  </p>
+                  <a
+                    href="/10907"
+                  >
+                    <div
+                      class="sc-dlfnbm jkoPfC"
+                    >
+                      View Details
+                    </div>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div
+          class="sc-kEjbxe eUZXih"
+          data-testid="pagination"
+        >
+          <button
+            class="sc-crrsfI jomiL"
+            disabled=""
+          >
+            First
+          </button>
+          <button
+            class="sc-crrsfI jomiL"
+            disabled=""
+          >
+            Previous
+          </button>
+          <p
+            class="sc-iqHYGH coxDri"
+            data-testid="pagination-view"
+          >
+            Page 
+            1
+             of 
+            10
+          </p>
+          <button
+            class="sc-crrsfI jomiL"
+          >
+            Next
+          </button>
+          <button
+            class="sc-crrsfI jomiL"
+          >
+            Last
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;

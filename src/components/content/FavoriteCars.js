@@ -7,7 +7,7 @@ function FavoriteCars() {
   const { favorites } = useContext(FavoritesContext);
 
   return (
-    <LIST_CONTENT>
+    <LIST_CONTENT data-testid="favoriteCars">
       <h3 className="--list-title">My Fovorite cars</h3>
       <p className="--list-desc">{favorites.length} results</p>
       <CarList carList={favorites} />

@@ -9,7 +9,7 @@ function Main() {
   useInitalLoading();
 
   return (
-    <Container fluid style={mainStyle}>
+    <Container fluid style={mainStyle} data-testid="main">
       <Row>
         <Col style={{ maxWidth: '400px' }}>
           <Filters />

@@ -4,7 +4,7 @@ import useLocalStorage from '../hooks/useLocalStorage';
 
 export const FavoritesContext = React.createContext();
 
-const LOCAL_STOAGE_KEY = '`AUTO1_MY_FAVORITE_CAR`';
+const LOCAL_STOAGE_KEY = 'AUTO1_MY_FAVORITE_CAR';
 
 export function FavoritesProvider({ children }) {
   const [favorites, setFavorites] = useLocalStorage(LOCAL_STOAGE_KEY, []);
@@ -21,7 +21,7 @@ export function FavoritesProvider({ children }) {
 
       return checkDuplication.length !== 0
         ? prevFavorites
-        : [...prevFavorites, { ...carDetailInfo }];
+        : [carDetailInfo, ...prevFavorites];
     });
   };
 
@@ -35,10 +35,14 @@ export function FavoritesProvider({ children }) {
     });
   };
 
+  // const getFavoriteDetail = stockNumber => {
+  //   return favorites.filter(item => item.stockNumber === +stockNumber)[0];
+  // };
+
+  const value = { favorites, addFavorite, deleteFavorite };
+
   return (
-    <FavoritesContext.Provider
-      value={{ favorites, addFavorite, deleteFavorite }}
-    >
+    <FavoritesContext.Provider value={value}>
       {children}
     </FavoritesContext.Provider>
   );

@@ -24,7 +24,7 @@ function Pagination({ page, totalPage, onClickPagenation }) {
 
     return btnArr.map((btn, index) => {
       return btn.name === 'Info' ? (
-        <PAGINATION_TEXT key={index}>
+        <PAGINATION_TEXT key={index} data-testid="pagination-view">
           Page {page} of {totalPage}
         </PAGINATION_TEXT>
       ) : (
@@ -38,7 +38,11 @@ function Pagination({ page, totalPage, onClickPagenation }) {
       );
     });
   };
-  return <PAGINATAION_WRAPPER>{renderPagenationBtn()}</PAGINATAION_WRAPPER>;
+  return (
+    <PAGINATAION_WRAPPER data-testid="pagination">
+      {renderPagenationBtn()}
+    </PAGINATAION_WRAPPER>
+  );
 }
 
 export default Pagination;

@@ -17,7 +17,7 @@ function AvailableCars() {
   };
 
   return (
-    <LIST_CONTENT>
+    <LIST_CONTENT data-testid="availableCarList">
       <h3 className="--list-title">Available cars</h3>
       <p className="--list-desc">
         Showing 10 of {carList.totalCarsCount} results

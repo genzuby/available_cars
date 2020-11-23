@@ -1,0 +1,42 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`render snapshot 1`] = `
+<div
+  class="container-fluid fixed-top d-flex justify-content-between align-items-center nav"
+  data-testid="header"
+  style="height: 80px; border-bottom: 2px solid #EDEDED; background-color: rgb(255, 255, 255); font-size: 20px;"
+>
+  <div
+    class="nav-item"
+  >
+    <a
+      class="nav-link"
+      data-rb-event-key="/"
+      href="/"
+    >
+      <img
+        alt="Logo"
+        class="sc-bdfBwQ leEZkR align-self-center"
+        src="/assets/logo.png"
+      />
+    </a>
+  </div>
+  <div
+    class="nav-item"
+  >
+    <a
+      class="nav-link"
+      data-rb-event-key="/favorites"
+      href="/favorites"
+    >
+      <div
+        class="sc-dlfnbm iWuJww"
+        color="#4A4A4A"
+        font-size="18px"
+      >
+        My Favorites
+      </div>
+    </a>
+  </div>
+</div>
+`;

@@ -8,6 +8,7 @@ function Header() {
     <Nav
       className="container-fluid fixed-top d-flex justify-content-between align-items-center"
       style={navStyle}
+      data-testid="header"
     >
       <Nav.Item>
         <Nav.Link href="/">

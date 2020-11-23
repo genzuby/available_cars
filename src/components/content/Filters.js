@@ -20,11 +20,13 @@ function Filters() {
   };
 
   return (
-    <InputGroup style={inputGroupStyle}>
+    <InputGroup style={inputGroupStyle} data-testid="filters">
       <DropDown type="color" />
       <DropDown type="manufacturers" />
       <BTN_WRAPPER justifyContent="flex-end">
-        <BUTTON onClick={onClickFilter}>Filter</BUTTON>
+        <BUTTON onClick={onClickFilter} data-testid="filter-button">
+          Filter
+        </BUTTON>
       </BTN_WRAPPER>
     </InputGroup>
   );

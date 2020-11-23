@@ -18,7 +18,7 @@ function Favorites({ stockNumber }) {
   };
 
   return (
-    <InputGroup style={inputGroupStyle}>
+    <InputGroup style={inputGroupStyle} data-testid="favorites">
       <p>
         If you {stockNumber ? 'do not ' : ''}like this car, click the button and{' '}
         {stockNumber ? 'delete' : 'save'} it in your collection of favourite

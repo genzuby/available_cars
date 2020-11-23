@@ -50,10 +50,13 @@ function DropDown({ type }) {
   };
 
   return (
-    <OPTION_WRAPPER flexDirection="column">
+    <OPTION_WRAPPER flexDirection="column" data-testid="dropdown">
       <LABEL>{type}</LABEL>
       <DROPDOWN_WRAPPER>
-        <DROPDOWN_BTN onClick={() => setDisplayDropdown(!displayDropdown)}>
+        <DROPDOWN_BTN
+          onClick={() => setDisplayDropdown(!displayDropdown)}
+          data-testid="dropdown-button"
+        >
           {renderFilter()}
           <span className="--dropdown-arrow" />
         </DROPDOWN_BTN>
@@ -62,6 +65,7 @@ function DropDown({ type }) {
             ...dropdownlistStyle,
             display: `${displayDropdown ? 'block' : 'none'}`,
           }}
+          data-testid="dropdown-list"
         >
           {renderDropDown()}
         </ListGroup>

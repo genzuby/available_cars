@@ -20,7 +20,7 @@ function CarList({ carList }) {
     }
   };
 
-  return <>{renderCarList()}</>;
+  return <div data-testid="carList">{renderCarList()}</div>;
 }
 
 export default CarList;

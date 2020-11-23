@@ -1,0 +1,29 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`snapshot 1`] = `
+<div
+  class="d-flex container-fluid"
+  data-testid="myFavorites"
+  style="margin: 80px 0px; padding: 24px 48px 0px 24px; display: grid; min-height: 76vh;"
+>
+  <div
+    class="sc-hKgILt kUrLvW"
+    data-testid="favoriteCars"
+  >
+    <h3
+      class="--list-title"
+    >
+      My Fovorite cars
+    </h3>
+    <p
+      class="--list-desc"
+    >
+      0
+       results
+    </p>
+    <div
+      data-testid="carList"
+    />
+  </div>
+</div>
+`;

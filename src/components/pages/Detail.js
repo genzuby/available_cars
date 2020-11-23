@@ -1,7 +1,6 @@
-import React, { useEffect } from 'react';
-import { useSelector, useDispatch } from 'react-redux';
+import React, { useEffect, useContext } from 'react';
 import { useHistory, useParams } from 'react-router';
-import { getDetailInfo } from '../../redux/actions';
+import { DetailInfoContext } from '../../contexts/DetailInfoContext';
 import DetailInfo from '../Content/DetailInfo';
 import Favorites from '../Content/Favorites';
 import {
@@ -14,16 +13,15 @@ import {
 } from '../../style/componentStyle';
 
 function Detail() {
+  const { detailInfo, fetchDetailInfo } = useContext(DetailInfoContext);
   const history = useHistory();
   const stockId = useParams().stockNumber;
-  const dispatch = useDispatch();
   const prevPath = history.location.state.prevPath;
 
   useEffect(() => {
-    dispatch(getDetailInfo(stockId));
+    fetchDetailInfo(stockId);
   }, []);
 
-  const carDetailInfo = useSelector(state => state.carDetailInfo);
   const {
     pictureUrl,
     stockNumber,
@@ -32,7 +30,7 @@ function Detail() {
     color,
     fuelType,
     mileage,
-  } = carDetailInfo;
+  } = detailInfo;
 
   const title = `${manufacturerName} ${modelName}`;
   const desc =
@@ -50,16 +48,26 @@ function Detail() {
       <Favorites />
     );
 
+  const renderDetilInfo = () => {
+    return (
+      stockNumber && (
+        <>
+          <HERO url={pictureUrl} />
+          <DETAIL_INFO_GROUP>
+            <DetailInfo title={title} desc={desc} />
+            <DETAIL_INFO_SUB>{renderAddFavoriteButton()}</DETAIL_INFO_SUB>
+          </DETAIL_INFO_GROUP>
+          <BTN_WRAPPER justifyContent="center">
+            <BUTTON onClick={onClickBackToList}>Back to the list</BUTTON>
+          </BTN_WRAPPER>
+        </>
+      )
+    );
+  };
+
   return (
-    <div style={detailStyle}>
-      <HERO url={pictureUrl} />
-      <DETAIL_INFO_GROUP>
-        <DetailInfo title={title} desc={desc} />
-        <DETAIL_INFO_SUB>{renderAddFavoriteButton()}</DETAIL_INFO_SUB>
-      </DETAIL_INFO_GROUP>
-      <BTN_WRAPPER justifyContent="center">
-        <BUTTON onClick={onClickBackToList}>Back to the list</BUTTON>
-      </BTN_WRAPPER>
+    <div style={detailStyle} data-testid="detail">
+      {renderDetilInfo()}
     </div>
   );
 }

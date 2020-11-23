@@ -21,7 +21,7 @@ function ItemCard({ stockNumber, title, desc, imgUrl }) {
   };
 
   return (
-    <Card style={cardStyle}>
+    <Card style={cardStyle} data-testid="itemCard">
       <Card.Body>
         <CARD_WRAPPER flexDirection="row">
           <CARD_IMG src={imgUrl} alt={title} width="120px" />
