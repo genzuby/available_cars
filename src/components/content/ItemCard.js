@@ -5,11 +5,12 @@ import { FavoritesContext } from '../../contexts/FavoritesContext';
 import {
   TEXT_BTN,
   CARD_WRAPPER,
-  DELETE_ICON,
+  ACTION_ICON,
   cardStyle,
   cardTitleStyle,
   CARD_IMG,
 } from '../../style/componentStyle';
+import { ICON_IMG } from '../../style/constant';
 
 function ItemCard({ stockNumber, title, desc, imgUrl }) {
   const location = useLocation();
@@ -17,7 +18,13 @@ function ItemCard({ stockNumber, title, desc, imgUrl }) {
 
   const renderDeleteFavoriteBtn = () => {
     if (location.pathname === '/favorites')
-      return <DELETE_ICON onClick={() => deleteFavorite(stockNumber)} />;
+      return (
+        <ACTION_ICON
+          bgImg={ICON_IMG.DELETE_NORMAL}
+          hoverImg={ICON_IMG.DELETE_HOVER}
+          onClick={() => deleteFavorite(stockNumber)}
+        />
+      );
   };
 
   return (

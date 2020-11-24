@@ -22,8 +22,8 @@ function App() {
               <Switch>
                 <Route path="/" component={Main} exact />
                 <Route path="/favorites" component={MyFavorites} />
+                <Route path="/notfound" component={NotFound} />
                 <Route path="/:stockNumber" component={Detail} />
-                {/* <Route path="/notfound" component={NotFound} /> */}
               </Switch>
               <Footer />
             </DetailInfoProvider>

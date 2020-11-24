@@ -64,5 +64,9 @@ export const getDetailInfo = stockNumber => async dispatch => {
     });
   } catch (e) {
     console.log(e);
+    dispatch({
+      type: GET_CAR_DETAILINFO,
+      payload: { stockNumber: 'notfound' },
+    });
   }
 };

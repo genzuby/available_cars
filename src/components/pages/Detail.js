@@ -1,12 +1,17 @@
 import React, { useEffect, useContext } from 'react';
-import { useHistory, useParams } from 'react-router';
+import { Redirect, useHistory, useParams } from 'react-router';
 import { DetailInfoContext } from '../../contexts/DetailInfoContext';
+import { FavoritesContext } from '../../contexts/FavoritesContext';
+import useMedia from '../../hooks/useMedia';
 import DetailInfo from '../Content/DetailInfo';
-import Favorites from '../Content/Favorites';
+import DetailMediaView from '../Content/DetailMediaView';
+import Loading from '../Content/Loading';
 import {
   detailStyle,
+  flexRowStyle,
+  flexColumnStyle,
+  detailMobileStyle,
   HERO,
-  DETAIL_INFO_SUB,
   DETAIL_INFO_GROUP,
   BTN_WRAPPER,
   BUTTON,
@@ -14,9 +19,11 @@ import {
 
 function Detail() {
   const { detailInfo, fetchDetailInfo } = useContext(DetailInfoContext);
+  const { addFavorite, deleteFavorite } = useContext(FavoritesContext);
   const history = useHistory();
   const stockId = useParams().stockNumber;
   const prevPath = history.location.state.prevPath;
+  const [mediaType] = useMedia();
 
   useEffect(() => {
     fetchDetailInfo(stockId);
@@ -41,35 +48,48 @@ function Detail() {
     history.goBack();
   };
 
-  const renderAddFavoriteButton = () =>
-    prevPath === '/favorites' ? (
-      <Favorites stockNumber={stockId} />
-    ) : (
-      <Favorites />
-    );
+  const handleDeleteFavorite = () => {
+    deleteFavorite(stockNumber);
+    history.goBack();
+  };
 
-  const renderDetilInfo = () => {
-    return (
-      stockNumber && (
-        <>
+  const renderDetail = () => {
+    if (typeof stockNumber === 'undefined') <Loading />;
+    else {
+      return stockNumber !== 'notfound' ? (
+        <div style={detailStyle} data-testid="detail">
           <HERO url={pictureUrl} />
-          <DETAIL_INFO_GROUP>
+          <DETAIL_INFO_GROUP
+            style={
+              mediaType === 'mobile'
+                ? {
+                    ...flexColumnStyle,
+                    ...detailMobileStyle,
+                    position: 'relative',
+                  }
+                : flexRowStyle
+            }
+          >
             <DetailInfo title={title} desc={desc} />
-            <DETAIL_INFO_SUB>{renderAddFavoriteButton()}</DETAIL_INFO_SUB>
+            <DetailMediaView
+              prevPath={prevPath}
+              mediaType={mediaType}
+              stockId={stockId}
+              onClickAdd={addFavorite}
+              onClickDelete={handleDeleteFavorite}
+            />
           </DETAIL_INFO_GROUP>
           <BTN_WRAPPER justifyContent="center">
             <BUTTON onClick={onClickBackToList}>Back to the list</BUTTON>
           </BTN_WRAPPER>
-        </>
-      )
-    );
+        </div>
+      ) : (
+        <Redirect to="/notfound" />
+      );
+    }
   };
 
-  return (
-    <div style={detailStyle} data-testid="detail">
-      {renderDetilInfo()}
-    </div>
-  );
+  return <>{renderDetail()}</>;
 }
 
 export default Detail;

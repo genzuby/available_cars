@@ -49,12 +49,20 @@ function DropDown({ type }) {
     }
   };
 
+  const hideDropdown = e => {
+    if (e && e.relatedTarget) {
+      e.relatedTarget.click();
+    }
+    setDisplayDropdown(false);
+  };
+
   return (
     <OPTION_WRAPPER flexDirection="column" data-testid="dropdown">
       <LABEL>{type}</LABEL>
       <DROPDOWN_WRAPPER>
         <DROPDOWN_BTN
           onClick={() => setDisplayDropdown(!displayDropdown)}
+          onBlur={hideDropdown}
           data-testid="dropdown-button"
         >
           {renderFilter()}

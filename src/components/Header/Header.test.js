@@ -17,13 +17,6 @@ it('shows bootstrap design properly', () => {
   );
 });
 
-it('goes to my favorite link', () => {
-  expect(screen.getByText('My Favorites').closest('a')).toHaveAttribute(
-    'href',
-    '/favorites'
-  );
-});
-
 it('goes to Home link', () => {
   expect(screen.getByAltText('Logo').closest('a')).toHaveAttribute('href', '/');
 });

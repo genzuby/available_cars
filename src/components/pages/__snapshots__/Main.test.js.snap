@@ -4,34 +4,33 @@ exports[`snapshot 1`] = `
 <div
   class="container-fluid"
   data-testid="main"
-  style="margin: 80px 0px; padding: 24px 48px 0px 24px; display: grid; min-height: 76vh;"
+  style="margin: 80px 0px; padding: 24px 48px 0px 24px; display: grid; min-height: 76vh; min-width: 580px;"
 >
   <div
     class="row"
   >
     <div
-      class="col"
-      style="max-width: 400px;"
+      class="input-group"
+      data-testid="filters"
+      style="border: 2px solid #ededed; padding: 24px; margin: 24px; display: flex;"
     >
       <div
-        class="input-group"
-        data-testid="filters"
-        style="border: 2px solid #ededed; padding: 24px; margin: 24px; display: flex;"
+        style="display: flex; flex-grow: 1; flex-direction: row;"
       >
         <div
-          class="sc-pFZIQ duAHLa"
+          class="sc-jrAGrp ihKIbi"
           data-testid="dropdown"
         >
           <p
-            class="sc-jrAGrp eEGqha"
+            class="sc-kEjbxe jyXEPx"
           >
             color
           </p>
           <div
-            class="sc-iBPRYJ fNSIpf"
+            class="sc-fubCfw cHMFvu"
           >
             <button
-              class="sc-gKsewC bdczbD"
+              class="sc-iBPRYJ iRdGrb"
               data-testid="dropdown-button"
             >
               All car colors
@@ -53,19 +52,19 @@ exports[`snapshot 1`] = `
           </div>
         </div>
         <div
-          class="sc-pFZIQ duAHLa"
+          class="sc-jrAGrp ihKIbi"
           data-testid="dropdown"
         >
           <p
-            class="sc-jrAGrp eEGqha"
+            class="sc-kEjbxe jyXEPx"
           >
             manufacturers
           </p>
           <div
-            class="sc-iBPRYJ fNSIpf"
+            class="sc-fubCfw cHMFvu"
           >
             <button
-              class="sc-gKsewC bdczbD"
+              class="sc-iBPRYJ iRdGrb"
               data-testid="dropdown-button"
             >
               All manufacturers
@@ -86,120 +85,119 @@ exports[`snapshot 1`] = `
             </div>
           </div>
         </div>
-        <div
-          class="sc-fubCfw bCEQtI"
+      </div>
+      <div
+        class="sc-pFZIQ dSwjrf"
+      >
+        <button
+          class="sc-gsTCUz rIUlr"
+          data-testid="filter-button"
         >
-          <button
-            class="sc-gsTCUz dUSUzg"
-            data-testid="filter-button"
-          >
-            Filter
-          </button>
-        </div>
+          Filter
+        </button>
       </div>
     </div>
+  </div>
+  <div
+    class="row"
+  >
     <div
-      class="col"
-      style="margin: 0px 48px 0px 0px;"
+      class="sc-eCssSg dnPiBN"
+      data-testid="availableCarList"
     >
-      <div
-        class="sc-hKgILt kUrLvW"
-        data-testid="availableCarList"
+      <h3
+        class="--list-title"
       >
-        <h3
-          class="--list-title"
-        >
-          Available cars
-        </h3>
-        <p
-          class="--list-desc"
-        >
-          Showing 10 of 
-          100
-           results
-        </p>
+        Available cars
+      </h3>
+      <p
+        class="--list-desc"
+      >
+        Showing 10 of 
+        100
+         results
+      </p>
+      <div
+        data-testid="carList"
+      >
         <div
-          data-testid="carList"
+          class="card"
+          data-testid="itemCard"
+          style="margin-bottom: 8px; width: 100%; position: relative;"
         >
           <div
-            class="card"
-            data-testid="itemCard"
-            style="margin-bottom: 8px; width: 100%; position: relative;"
+            class="card-body"
           >
             <div
-              class="card-body"
+              class="sc-jSgupP crnANy"
             >
-              <div
-                class="sc-eCssSg jQmxdX"
-              >
-                <img
-                  alt="Dodge Caliber"
-                  class="sc-jSgupP htlqyq"
-                  src="car.svg"
-                  width="120px"
-                />
-                <div>
-                  <div
-                    class="card-title h5"
-                    style="font-size: 24px; font-weight: bold;"
-                  >
-                    Dodge Caliber
-                  </div>
-                  <p
-                    class="card-text"
-                  >
-                    Stock #10907 - 138210 km - Diesel
-                  </p>
-                  <a
-                    href="/10907"
-                  >
-                    <div
-                      class="sc-dlfnbm jkoPfC"
-                    >
-                      View Details
-                    </div>
-                  </a>
+              <img
+                alt="Dodge Caliber"
+                class="sc-gKsewC jhcpzX"
+                src="car.svg"
+                width="120px"
+              />
+              <div>
+                <div
+                  class="card-title h5"
+                  style="font-size: 24px; font-weight: bold;"
+                >
+                  Dodge Caliber
                 </div>
+                <p
+                  class="card-text"
+                >
+                  Stock #10907 - 138210 km - Diesel
+                </p>
+                <a
+                  href="/10907"
+                >
+                  <div
+                    class="sc-hKgILt beYcYI"
+                  >
+                    View Details
+                  </div>
+                </a>
               </div>
             </div>
           </div>
         </div>
-        <div
-          class="sc-kEjbxe eUZXih"
-          data-testid="pagination"
+      </div>
+      <div
+        class="sc-iqHYGH dxXOPw"
+        data-testid="pagination"
+      >
+        <button
+          class="sc-dQppl evvkmt"
+          disabled=""
         >
-          <button
-            class="sc-crrsfI jomiL"
-            disabled=""
-          >
-            First
-          </button>
-          <button
-            class="sc-crrsfI jomiL"
-            disabled=""
-          >
-            Previous
-          </button>
-          <p
-            class="sc-iqHYGH coxDri"
-            data-testid="pagination-view"
-          >
-            Page 
-            1
-             of 
-            10
-          </p>
-          <button
-            class="sc-crrsfI jomiL"
-          >
-            Next
-          </button>
-          <button
-            class="sc-crrsfI jomiL"
-          >
-            Last
-          </button>
-        </div>
+          First
+        </button>
+        <button
+          class="sc-dQppl evvkmt"
+          disabled=""
+        >
+          Previous
+        </button>
+        <p
+          class="sc-crrsfI ibcHiL"
+          data-testid="pagination-view"
+        >
+          Page 
+          1
+           of 
+          10
+        </p>
+        <button
+          class="sc-dQppl evvkmt"
+        >
+          Next
+        </button>
+        <button
+          class="sc-dQppl evvkmt"
+        >
+          Last
+        </button>
       </div>
     </div>
   </div>

@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { COLOR } from './constant';
+import { COLOR, SIZE } from './constant';
 
 const {
   LIGHT_GRAY,
@@ -15,12 +15,34 @@ export const mainStyle = {
   padding: '24px 48px 0 24px',
   display: 'grid',
   minHeight: '76vh',
+  minWidth: `${SIZE.MIN_BODY_WIDTH}`,
 };
 
 export const detailStyle = {
   margin: '80px 0 24px 0',
   width: '100%',
+  minHeight: '82vh',
   display: 'grid',
+  justifyContent: 'center',
+  minWidth: `${SIZE.MIN_BODY_WIDTH}`,
+};
+
+export const detailMobileStyle = {
+  padding: '0 6em',
+};
+
+export const flexStyle = {
+  display: 'flex',
+  flexGrow: 1,
+};
+export const flexColumnStyle = {
+  ...flexStyle,
+  flexDirection: 'column',
+};
+
+export const flexRowStyle = {
+  ...flexStyle,
+  flexDirection: 'row',
 };
 
 export const footerStyle = {
@@ -28,6 +50,7 @@ export const footerStyle = {
   fontSize: '16px',
   color: DARK_GRAY,
   borderTop: `2px solid ${LIGHT_GRAY}`,
+  minWidth: `${SIZE.MIN_BODY_WIDTH}`,
 };
 
 export const navStyle = {
@@ -35,17 +58,18 @@ export const navStyle = {
   borderBottom: `2px solid ${LIGHT_GRAY}`,
   backgroundColor: MAIN_BGCOLOR,
   fontSize: '20px',
+  minWidth: `${SIZE.MIN_BODY_WIDTH}`,
 };
 
 export const LOGOIMG = styled.img`
-  width: 73%;
+  width: ${props => props.width || `73%`};
   height: auto;
   padding: 8px 24px;
 `;
 
 export const BUTTON = styled.button`
-  width: 168px;
-  height: 38px;
+  width: ${props => props.width || '168px'};
+  height: ${props => props.width || '38px'};
   font-size: 16px;
   color: ${BTN_COLOR};
   outline: 0 !important;
@@ -59,6 +83,12 @@ export const BUTTON = styled.button`
   &:hover {
     background-color: ${props => props.hoverColor || DARK_ORANGE};
   }
+`;
+
+export const TEXT_BTN_NORMAL = styled.div`
+  color: ${props => props.color || MAIN_ORANGE};
+  font-size: ${props => props.fontSize || `16px`};
+  cursor: pointer;
 `;
 
 export const TEXT_BTN = styled.div`
@@ -229,11 +259,13 @@ export const HERO = styled.div`
   background-position: center;
   width: 100vw;
   height: 44vh;
+  min-width: ${SIZE.MIN_BODY_WIDTH};
 `;
 
 export const DETAIL_INFO_GROUP = styled.div`
   display: flex;
-  width: 1000px;
+  width: 100%;
+  padding: 0 16em;
   justify-self: center;
 `;
 
@@ -243,6 +275,7 @@ export const DETAIL_INFO = styled.div`
   h3,
   p {
     padding-top: 12px;
+    word-break: keep-all;
   }
 
   h1 {
@@ -255,22 +288,38 @@ export const DETAIL_INFO = styled.div`
 `;
 
 export const DETAIL_INFO_SUB = styled.div`
-  width: 300px;
+  width: '100%';
   padding: 24px;
+  display: flex;
 `;
 
-export const DELETE_ICON = styled.span`
+export const ACTION_ICON = styled.span`
   position: absolute;
-  background: url('/assets/delete.svg') no-repeat;
+  background: url(${props => props.bgImg}) no-repeat;
   background-size: contain;
-  right: 0;
-  top: 0;
+  right: ${props => props.right || 0};
+  top: ${props => props.top || 0};
   margin: 24px;
-  width: 24px;
-  height: 24px;
+  width: ${props => props.size || '24px'};
+  height: ${props => props.size || '24px'};
   cursor: pointer;
 
   &:hover {
-    background: url('/assets/delete-hover.svg') no-repeat;
+    background: url(${props => props.hoverImg}) no-repeat;
+  }
+`;
+
+export const PADDING = styled.div`
+  height: ${props => props.height || `24px`};
+  width: ${props => props.width || `24px`};
+`;
+
+export const ACCENT_TEXT = styled.p`
+  font-size: ${props => props.fontSize || '24px'};
+  color: ${props => props.color || DARK_GRAY};
+  font-weight : ${props => props.fontWeight || 'normal'}
+
+  &:hover {
+    color: ${props => (props.hover ? DARK_ORANGE : DARK_GRAY)};
   }
 `;

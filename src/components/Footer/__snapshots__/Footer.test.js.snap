@@ -4,7 +4,7 @@ exports[`render snapshot 1`] = `
 <footer
   class="container-fluid d-flex justify-content-center  align-items-center p-4"
   data-testid="footer"
-  style="height: 80px; font-size: 16px; color: rgb(74, 74, 74); border-top: 2px solid #EDEDED;"
+  style="height: 80px; font-size: 16px; color: rgb(74, 74, 74); border-top: 2px solid #EDEDED; min-width: 580px;"
 >
   © AUTO1 Group 2018
 </footer>

@@ -35,10 +35,6 @@ export function FavoritesProvider({ children }) {
     });
   };
 
-  // const getFavoriteDetail = stockNumber => {
-  //   return favorites.filter(item => item.stockNumber === +stockNumber)[0];
-  // };
-
   const value = { favorites, addFavorite, deleteFavorite };
 
   return (

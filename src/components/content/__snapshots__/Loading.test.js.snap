@@ -1,0 +1,16 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`render snapshot 1`] = `
+<div
+  class="spinner-border"
+  data-testid="loading"
+  role="status"
+  style="width: 100px; height: 100px;"
+>
+  <span
+    class="sr-only"
+  >
+    Loading...
+  </span>
+</div>
+`;

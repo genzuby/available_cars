@@ -1,15 +1,29 @@
 import React from 'react';
 import { Container, Row, Col } from 'react-bootstrap';
 import useInitalLoading from '../../hooks/useInitalLoading';
+import useMedia from '../../hooks/useMedia';
 import Filters from '../Content/Filters';
 import AvailableCars from '../Content/AvailableCars';
 import { mainStyle } from '../../style/componentStyle';
 
 function Main() {
   useInitalLoading();
+  const [mediaType] = useMedia();
 
-  return (
-    <Container fluid style={mainStyle} data-testid="main">
+  const renderMobileView = () => {
+    return (
+      <>
+        <Row>
+          <Filters />
+        </Row>
+        <Row>
+          <AvailableCars />
+        </Row>
+      </>
+    );
+  };
+  const renderDeskTopView = () => {
+    return (
       <Row>
         <Col style={{ maxWidth: '400px' }}>
           <Filters />
@@ -18,6 +32,12 @@ function Main() {
           <AvailableCars />
         </Col>
       </Row>
+    );
+  };
+
+  return (
+    <Container fluid style={mainStyle} data-testid="main">
+      {mediaType === 'desktop' ? renderDeskTopView() : renderMobileView()}
     </Container>
   );
 }
