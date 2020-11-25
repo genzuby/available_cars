@@ -1,70 +1,58 @@
-# Getting Started with Create React App
+# Available Cars list
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# scripts
 
-## Available Scripts
-
-In the project directory, you can run:
-
-### `yarn start`
+## run `yarn start`
 
 Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+Open **[http://localhost:3000](http://localhost:3000)** to view it in the browser.
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
-
-### `yarn test`
+## run `yarn test`
 
 Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
-### `yarn build`
+## yarn flow
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+Static type checking
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+# UI
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+------> [Design and style guide](https://github.com/squirreljuror/api-design-and-styles/blob/master/design-and-style-guide.pdf) <------ Click here to see design
 
-### `yarn eject`
+- Use [Material UI](https://material-ui.com/) or [React Bootstrap](https://react-bootstrap.github.io/) for UI components (optional)
+- You can use available components only and ignore missmatching of original design if any (optional)
+- Logo https://auto1-js-task-api--mufasa71.repl.co/images/logo.png
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+# Non-technical requirements
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+The application must meet the following requirements:
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+- Fetch all available cars
+- Implement pagination with limit of 10
+- Allow the user to filter the cars by manufacturer or color
+- Show the details of a selected car
+- **Bonus**: Add/Remove a car to/from the favorites collection using local storage
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+# Technical requirements
 
-## Learn More
+- Create a SPA using latest **ReactJS**
+- Use create-react-app to setup app
+- Use best practices with hooks
+- Add tests (with [react-testing-library](https://testing-library.com/docs/react-testing-library/intro))
+- **Bonus** Static type checking (TS or Flow)
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+# Please avoid
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+- Copying any functionality from other projects
+- Deep project structure, ideally only 2 levels are allowed
+- Premature optimization
 
-### Code Splitting
+# Swagger
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+For the application data, please use following swagger docs:
 
-### Analyzing the Bundle Size
+https://auto1-mock-server.herokuapp.com/docs
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+You can generate client with [Swagger editor](https://editor.swagger.io/) (or similar) and following file
 
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `yarn build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+https://auto1-mock-server.herokuapp.com/openapi.yaml
