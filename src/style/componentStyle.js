@@ -130,6 +130,17 @@ export const LIST_CONTENT = styled.div`
   }
 `;
 
+export const LIST_ITEM = styled.div`
+  margin: 0;
+  padding: 12px 24px;
+  width: 100%;
+  &:hover,
+  &:active {
+    color: #ffffff;
+    background-color: ${MAIN_ORANGE};
+  }
+`;
+
 export const cardStyle = {
   marginBottom: '8px',
   width: '100%',

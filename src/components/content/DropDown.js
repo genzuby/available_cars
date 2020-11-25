@@ -10,6 +10,7 @@ import {
   DROPDOWN_BTN,
   OPTION_WRAPPER,
   LABEL,
+  LIST_ITEM,
 } from '../../style/componentStyle';
 
 function DropDown({ type }: { type: string }): Node {
@@ -39,8 +40,13 @@ function DropDown({ type }: { type: string }): Node {
     const itemArray = type === 'color' ? colorFilter : manufacturersNames;
 
     return itemArray.map((item: string, idx: number) => (
-      <ListGroup.Item action key={idx} onClick={() => onClickFilterItem(item)}>
-        {item}
+      <ListGroup.Item
+        action
+        key={idx}
+        style={{ padding: '0' }}
+        onClick={() => onClickFilterItem(item)}
+      >
+        <LIST_ITEM>{item}</LIST_ITEM>
       </ListGroup.Item>
     ));
   };
