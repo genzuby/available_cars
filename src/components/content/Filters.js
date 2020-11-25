@@ -1,4 +1,6 @@
+// @flow
 import React, { useContext } from 'react';
+import type { Node } from 'react';
 import DropDown from './DropDown';
 import { useDispatch } from 'react-redux';
 import { InputGroup } from 'react-bootstrap';
@@ -13,10 +15,10 @@ import {
   BTN_WRAPPER,
 } from '../../style/componentStyle';
 
-function Filters() {
+function Filters(): Node {
   const dispatch = useDispatch();
   const { filter, setFilter } = useContext(FilterContext);
-  const [mediaType] = useMedia();
+  const [mediaType]: [string] = useMedia();
 
   const onClickFilter = () => {
     setFilter({ ...filter, page: 1 });

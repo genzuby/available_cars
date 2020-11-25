@@ -1,5 +1,5 @@
 import moxios from 'moxios';
-import { store, providerValue } from '../../testUtil';
+import { store, notfountStore, providerValue } from '../../testUtil';
 import {
   getColorsList,
   getManufaturersList,
@@ -85,6 +85,23 @@ describe('Test actions', () => {
     return store.dispatch(getDetailInfo(10907)).then(() => {
       const newState = store.getState();
       expect(newState.carDetailInfo).toStrictEqual(expectState);
+    });
+  });
+
+  it('stores correctly from 404 error from getDetailInfo', () => {
+    const expectState = { stockNumber: 'notfound' };
+
+    moxios.wait(() => {
+      const request = moxios.requests.mostRecent();
+      request.respondWith({
+        status: 200,
+        response: expectState,
+      });
+    });
+
+    return notfountStore.dispatch(getDetailInfo(10907)).then(() => {
+      const newState = notfountStore.getState();
+      expect(newState.carDetailInfo.stockNumber).toStrictEqual('notfound');
     });
   });
 });

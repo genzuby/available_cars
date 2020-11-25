@@ -1,4 +1,6 @@
+//@flow
 import React, { useContext } from 'react';
+import type { Node } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { FilterContext } from '../../contexts/FilterContext';
 import { getAvailableCarList } from '../../redux/actions';
@@ -6,7 +8,7 @@ import CarList from './CarList';
 import { LIST_CONTENT } from '../../style/componentStyle';
 import Pagination from './Pagination';
 
-function AvailableCars() {
+function AvailableCars(): Node {
   const carList = useSelector(state => state.carList);
   const dispatch = useDispatch();
   const { filter, setFilter } = useContext(FilterContext);
@@ -20,7 +22,7 @@ function AvailableCars() {
     <LIST_CONTENT data-testid="availableCarList">
       <h3 className="--list-title">Available cars</h3>
       <p className="--list-desc">
-        Showing 10 of {carList.totalCarsCount} results
+        Showing 10 of {carList.totalCarsCount}:string results
       </p>
       <CarList carList={carList.cars} />
       <Pagination

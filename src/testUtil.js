@@ -18,10 +18,17 @@ const initialState = {
   carList: { cars: [providerValue], totalPageCount: 10, totalCarsCount: 100 },
 };
 
+const notfoundState = {
+  carDetailInfo: {
+    stockNumber: 'notfound',
+  },
+};
+
 const middlewares = [thunk];
 const mockStore = configureMockStore(middlewares);
 
 export const store = mockStore(initialState);
+export const notfountStore = mockStore(notfoundState);
 
 export const localStorageMock = {
   getItem: jest.fn().mockImplementation(key => localStorageItems[key]),

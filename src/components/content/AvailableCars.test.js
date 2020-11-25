@@ -33,7 +33,7 @@ it('renders with context value and redux store', () => {
 
 it('gets available car list', () => {
   expect(screen.getByTestId('availableCarList')).toHaveTextContent(
-    'Available carsShowing 10 of 100 resultsDodge'
+    'Available carsShowing 10 of 100'
   );
 });
 

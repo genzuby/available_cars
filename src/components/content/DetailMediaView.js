@@ -1,7 +1,17 @@
+// @flow
 import React from 'react';
+import type { Node } from 'react';
 import Favorites from './Favorites';
 import { ACTION_ICON, DETAIL_INFO_SUB } from '../../style/componentStyle';
 import { ICON_IMG } from '../../style/constant';
+
+type Props = {
+  prevPath: string,
+  mediaType: string,
+  stockId: string,
+  onClickAdd: () => void,
+  onClickDelete: () => void,
+};
 
 function DetailMediaView({
   prevPath,
@@ -9,7 +19,7 @@ function DetailMediaView({
   stockId,
   onClickAdd,
   onClickDelete,
-}) {
+}: Props): Node {
   const renderMediaView = () =>
     prevPath === '/favorites' ? (
       mediaType === 'mobile' ? (

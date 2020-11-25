@@ -1,4 +1,6 @@
+// @flow
 import React, { useContext } from 'react';
+import type { Node } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { Card } from 'react-bootstrap';
 import { FavoritesContext } from '../../contexts/FavoritesContext';
@@ -12,7 +14,14 @@ import {
 } from '../../style/componentStyle';
 import { ICON_IMG } from '../../style/constant';
 
-function ItemCard({ stockNumber, title, desc, imgUrl }) {
+type Props = {
+  stockNumber: string,
+  title: string,
+  desc: string,
+  imgUrl: string,
+};
+
+function ItemCard({ stockNumber, title, desc, imgUrl }: Props): Node {
   const location = useLocation();
   const { deleteFavorite } = useContext(FavoritesContext);
 

@@ -1,4 +1,6 @@
+// @flow
 import React from 'react';
+import type { Node } from 'react';
 import { InputGroup } from 'react-bootstrap';
 import {
   inputGroupStyle,
@@ -6,7 +8,13 @@ import {
   BTN_WRAPPER,
 } from '../../style/componentStyle';
 
-function Favorites({ stockNumber, onClickDelete, onClickAdd }) {
+type Props = {
+  stockNumber?: string,
+  onClickDelete?: () => void,
+  onClickAdd?: () => void,
+};
+
+function Favorites({ stockNumber, onClickDelete, onClickAdd }: Props): Node {
   return (
     <InputGroup style={inputGroupStyle} data-testid="favorites">
       <p>

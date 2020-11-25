@@ -1,8 +1,10 @@
+// @flow
 import React from 'react';
+import type { Node } from 'react';
 import { Spinner, Container } from 'react-bootstrap';
 import { mainStyle } from '../../style/componentStyle';
 
-function Loading() {
+function Loading(): Node {
   return (
     <Container
       fluid

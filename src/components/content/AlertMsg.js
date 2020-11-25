@@ -1,7 +1,23 @@
+//@flow
 import React from 'react';
+import type { Node } from 'react';
 import { Alert, Button } from 'react-bootstrap';
 
-function AlertMsg({ show, title, message, onClickConfirm, onClickDismiss }) {
+type Props = {
+  show: boolean,
+  title: string,
+  message: string,
+  onClickConfirm: () => void,
+  onClickDismiss: () => void,
+};
+
+function AlertMsg({
+  show,
+  title,
+  message,
+  onClickConfirm,
+  onClickDismiss,
+}: Props): Node {
   return (
     <Alert
       show={show}

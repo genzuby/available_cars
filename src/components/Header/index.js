@@ -1,4 +1,6 @@
+// @flow
 import React from 'react';
+import type { Node } from 'react';
 import { Nav } from 'react-bootstrap';
 import useMedia from '../../hooks/useMedia';
 import {
@@ -9,8 +11,8 @@ import {
 } from '../../style/componentStyle';
 import { COLOR, ICON_IMG } from '../../style/constant';
 
-function Header() {
-  const [mediaType] = useMedia();
+function Header(): Node {
+  const [mediaType]: [string] = useMedia();
 
   return (
     <Nav
@@ -30,13 +32,13 @@ function Header() {
       <Nav.Item style={{ position: 'relative', paddingRight: '24px' }}>
         <Nav.Link href="/favorites">
           <ACTION_ICON
-            size={mediaType === 'desktop' ? '20px' : '30px'}
+            size={(mediaType: string) === 'desktop' ? '20px' : '30px'}
             right="-5%"
-            top={mediaType === 'desktop' ? '-20%' : '-200%'}
+            top={(mediaType: string) === 'desktop' ? '-20%' : '-200%'}
             bgImg={ICON_IMG.FAVORITE_NORMAL}
             hoverImg={ICON_IMG.FAVORITE_HOVER}
           />
-          {mediaType === 'desktop' && (
+          {(mediaType: string) === 'desktop' && (
             <TEXT_BTN color={COLOR.DARK_GRAY} fontSize="18px">
               My Favorites
             </TEXT_BTN>

@@ -1,12 +1,20 @@
+// @flow
 import React from 'react';
+import type { Node } from 'react';
 import {
   PAGINATAION_WRAPPER,
   PAGINATION_TEXT,
   PAGINATION_BTN,
 } from '../../style/componentStyle';
 
-function Pagination({ page, totalPage, onClickPagenation }) {
-  const setDisableBtn = type => {
+type Props = {
+  page: number,
+  totalPage: number,
+  onClickPagenation: number => void,
+};
+
+function Pagination({ page, totalPage, onClickPagenation }: Props): Node {
+  const setDisableBtn = (type: string) => {
     if (type === 'pre') {
       return page === 1;
     } else if (type === 'next') {
@@ -25,15 +33,15 @@ function Pagination({ page, totalPage, onClickPagenation }) {
     return btnArr.map((btn, index) => {
       return btn.name === 'Info' ? (
         <PAGINATION_TEXT key={index} data-testid="pagination-view">
-          Page {page} of {totalPage}
+          Page {(page: number)} of {(totalPage: number)}
         </PAGINATION_TEXT>
       ) : (
         <PAGINATION_BTN
           key={index}
-          disabled={setDisableBtn(btn.type)}
-          onClick={() => onClickPagenation(btn.page)}
+          disabled={setDisableBtn((btn.type: string))}
+          onClick={() => onClickPagenation((btn.page: number))}
         >
-          {btn.name}
+          {(btn.name: string)}
         </PAGINATION_BTN>
       );
     });

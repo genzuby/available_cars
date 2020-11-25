@@ -1,4 +1,6 @@
+// @flow
 import React, { useState, useContext } from 'react';
+import type { Node } from 'react';
 import { useSelector } from 'react-redux';
 import { ListGroup } from 'react-bootstrap';
 import { FilterContext } from '../../contexts/FilterContext';
@@ -10,16 +12,22 @@ import {
   LABEL,
 } from '../../style/componentStyle';
 
-function DropDown({ type }) {
-  const [displayDropdown, setDisplayDropdown] = useState(false);
+function DropDown({ type }: { type: string }): Node {
+  const [displayDropdown, setDisplayDropdown]: [
+    boolean,
+    ((boolean => boolean) | boolean) => void
+  ] = useState(false);
   const { filter, setFilter } = useContext(FilterContext);
   const colorFilter = useSelector(state => state.colorFilter);
   const manufacturersFilter = useSelector(state => state.manufacturersFilter);
 
-  const onClickFilterItem = value => {
-    type === 'color'
-      ? setFilter({ ...filter, color: value })
-      : setFilter({ ...filter, manufacturer: value });
+  const onClickFilterItem = (value: string) => {
+    if (type === 'color') {
+      setFilter({ ...filter, color: value });
+    } else if (type === 'manufacturers') {
+      setFilter({ ...filter, manufacturer: value });
+    }
+
     setDisplayDropdown(false);
   };
 
@@ -30,7 +38,7 @@ function DropDown({ type }) {
     }, []);
     const itemArray = type === 'color' ? colorFilter : manufacturersNames;
 
-    return itemArray.map((item, idx) => (
+    return itemArray.map((item: string, idx: number) => (
       <ListGroup.Item action key={idx} onClick={() => onClickFilterItem(item)}>
         {item}
       </ListGroup.Item>

@@ -1,0 +1,15 @@
+[ignore]
+.*/src/index\.js
+.*\.test\.js
+
+[include]
+
+[libs]
+/type-def-libs
+
+[lints]
+
+[options]
+react.runtime=automatic
+
+[strict]

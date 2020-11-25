@@ -25,7 +25,7 @@ export function FavoritesProvider({ children }) {
     });
   };
 
-  const deleteFavorite = stockNumber => {
+  const deleteFavorite = (stockNumber: string) => {
     setFavorites(prevFavorites => {
       const filteredFavorites = prevFavorites.filter(
         item => item.stockNumber !== +stockNumber

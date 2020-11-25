@@ -1,7 +1,9 @@
+//@flow
 import React from 'react';
+import type { Node } from 'react';
 import ItemCard from './ItemCard';
 
-function CarList({ carList }) {
+function CarList({ carList }: { carList: [] }): Node {
   const renderCarList = () => {
     if (carList) {
       return carList.map((car, index) => {

@@ -1,7 +1,9 @@
+// @flow
 import React from 'react';
+import type { Node } from 'react';
 import { DETAIL_INFO } from '../../style/componentStyle';
 
-function DetailInfo({ title, desc }) {
+function DetailInfo({ title, desc }: { title: string, desc: string }): Node {
   return (
     <DETAIL_INFO data-testid="detailInfo">
       <h1>{title}</h1>

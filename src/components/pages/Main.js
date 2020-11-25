@@ -1,4 +1,6 @@
+// @flow
 import React from 'react';
+import type { Node } from 'react';
 import { Container, Row, Col } from 'react-bootstrap';
 import useInitalLoading from '../../hooks/useInitalLoading';
 import useMedia from '../../hooks/useMedia';
@@ -6,9 +8,9 @@ import Filters from '../Content/Filters';
 import AvailableCars from '../Content/AvailableCars';
 import { mainStyle } from '../../style/componentStyle';
 
-function Main() {
+function Main(): Node {
   useInitalLoading();
-  const [mediaType] = useMedia();
+  const [mediaType]: [string] = useMedia();
 
   const renderMobileView = () => {
     return (

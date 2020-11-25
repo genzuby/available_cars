@@ -1,4 +1,6 @@
+// @flow
 import React from 'react';
+import type { Node } from 'react';
 import { Container } from 'react-bootstrap';
 import { useHistory } from 'react-router';
 import {
@@ -9,7 +11,7 @@ import {
   TEXT_BTN_NORMAL,
 } from '../../style/componentStyle';
 
-function NotFound() {
+function NotFound(): Node {
   const history = useHistory();
 
   const onClickBackToList = () => {

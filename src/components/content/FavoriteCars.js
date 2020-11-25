@@ -1,9 +1,11 @@
+// @flow
 import React, { useContext } from 'react';
+import type { Node } from 'react';
 import { FavoritesContext } from '../../contexts/FavoritesContext';
 import CarList from './CarList';
 import { LIST_CONTENT } from '../../style/componentStyle';
 
-function FavoriteCars() {
+function FavoriteCars(): Node {
   const { favorites } = useContext(FavoritesContext);
 
   return (

@@ -10,10 +10,10 @@ export function DetailInfoProvider({ children }) {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    setDetailInfo(carDetailInfo);
+    setDetailInfo((carDetailInfo: {}));
   }, [carDetailInfo]);
 
-  const fetchDetailInfo = stockNumber => {
+  const fetchDetailInfo = (stockNumber: string) => {
     dispatch(getDetailInfo(stockNumber));
   };
 

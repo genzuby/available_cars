@@ -1,3 +1,5 @@
+//@flow
+import type { Node } from 'react';
 import GlobalStyle from '../style/globalStyles';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import { FilterProvider } from '../contexts/FilterContext';
@@ -10,7 +12,7 @@ import NotFound from './pages/NotFound';
 import Detail from './pages/Detail';
 import { DetailInfoProvider } from '../contexts/DetailInfoContext';
 
-function App() {
+function App(): Node {
   return (
     <>
       <GlobalStyle />

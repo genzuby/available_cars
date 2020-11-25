@@ -265,8 +265,9 @@ export const HERO = styled.div`
 export const DETAIL_INFO_GROUP = styled.div`
   display: flex;
   width: 100%;
-  padding: 0 16em;
+  padding: 0 18%;
   justify-self: center;
+  position: relative;
 `;
 
 export const DETAIL_INFO = styled.div`

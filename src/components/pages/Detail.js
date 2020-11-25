@@ -1,4 +1,6 @@
+// @flow
 import React, { useEffect, useContext, useState } from 'react';
+import type { Node } from 'react';
 import { Redirect, useHistory, useParams } from 'react-router';
 import { DetailInfoContext } from '../../contexts/DetailInfoContext';
 import { FavoritesContext } from '../../contexts/FavoritesContext';
@@ -18,18 +20,24 @@ import {
   BUTTON,
 } from '../../style/componentStyle';
 
-function Detail() {
+function Detail(): Node {
   const { detailInfo, fetchDetailInfo } = useContext(DetailInfoContext);
   const { addFavorite, deleteFavorite } = useContext(FavoritesContext);
-  const [showAlert, setShowAlert] = useState(false);
-  const [redirectFavorite, setRedirectFavorite] = useState(false);
+  const [showAlert, setShowAlert]: [
+    boolean,
+    ((boolean => boolean) | boolean) => void
+  ] = useState(false);
+  const [redirectFavorite, setRedirectFavorite]: [
+    boolean,
+    ((boolean => boolean) | boolean) => void
+  ] = useState(false);
   const history = useHistory();
   const stockId = useParams().stockNumber;
   const prevPath = history.location.state.prevPath;
-  const [mediaType] = useMedia();
+  const [mediaType]: [string] = useMedia();
 
   useEffect(() => {
-    fetchDetailInfo(stockId);
+    fetchDetailInfo((stockId: string));
   }, []);
 
   const {
@@ -42,10 +50,10 @@ function Detail() {
     mileage,
   } = detailInfo;
 
-  const title = `${manufacturerName} ${modelName}`;
+  const title = `${(manufacturerName: string)} ${(modelName: string)}`;
   const desc =
     mileage &&
-    `Stock # ${stockNumber} - ${mileage.number} ${mileage.unit} - ${fuelType} - ${color}`;
+    `Stock # ${(stockNumber: number)} - ${(mileage.number: number)} ${(mileage.unit: string)} - ${(fuelType: string)} - ${(color: string)}`;
 
   const onClickBackToList = () => {
     history.goBack();
@@ -64,12 +72,11 @@ function Detail() {
   const redirectFavoritePage = () => {
     setShowAlert(false);
     setRedirectFavorite(true);
-    return <Redirect to="/favorites" />;
   };
 
   const renderAlert = () => {
     const alertTitle = 'Added Favorite Item';
-    const alertMessage = `Successfully added "${title}" on your favorite collection. Do you want to go to your collection?`;
+    const alertMessage = `Successfully added "${(title: string)}" on your favorite collection. Do you want to go to your collection?`;
     return (
       <AlertMsg
         show={showAlert}
@@ -87,7 +94,7 @@ function Detail() {
       return stockNumber !== 'notfound' ? (
         <div style={detailStyle} data-testid="detail">
           <HERO url={pictureUrl} />
-          {renderAlert()}
+          {showAlert && renderAlert()}
           {redirectFavorite && <Redirect to="/favorites" />}
           <DETAIL_INFO_GROUP
             style={
@@ -95,7 +102,6 @@ function Detail() {
                 ? {
                     ...flexColumnStyle,
                     ...detailMobileStyle,
-                    position: 'relative',
                   }
                 : flexRowStyle
             }
